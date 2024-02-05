@@ -30,7 +30,7 @@ function generateMarkdown(userResponses) {
   
   ${userResponses.usage}
    
-  ## Contributing
+  ## Contributors
   
   ${userResponses.contributing}
  
