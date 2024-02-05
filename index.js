@@ -103,9 +103,22 @@ function writeToFile(fileName, data) {
 };
 
 // function to initialize program
-function init() {
+async function init() {
+    try {
+        // Prompt Inquirer questions
+        const userResponses = await inquirer.prompt(questions);
+        console.log("Your responses: ", userResponses);
+    
+        // Pass Inquirer userResponses to generateMarkdown
+        const markdown = generateMarkdown(userResponses);
+    
+        // Write markdown to file
+        await writeToFile('GeneratedREADME.md', markdown);
 
-}
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 // function call to initialize program
 init();
