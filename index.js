@@ -1,5 +1,5 @@
+// import moduls from Node.js: `fs` and `inquirer`
 const fs = require("fs");
-const path = require('path');
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
@@ -94,7 +94,13 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-}
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Success! Your GeneratedREADME.md file has been generated")
+    });
+};
 
 // function to initialize program
 function init() {
